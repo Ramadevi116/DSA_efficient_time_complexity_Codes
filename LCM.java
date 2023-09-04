@@ -1,20 +1,27 @@
 import java.util.*;
-class LCM{
-        static int lcm(int a,int b){
-            int res=Math.max(a,b);
-            while(true){
-                if(res%a==0 && res%b==0){
-                    break;
-                }
-                res++;
+class main{
+    static int gcd(int a,int b){
+        while(a!=0 && b!=0){
+            if(a>b){
+                a=a%b;
+            }else{
+                b=b%a;
             }
-        return res;
         }
-    
-     public static void main(String[] args){
-         Scanner in=new Scanner(System.in);
-         int n1=in.nextInt();
-         int n2=in.nextInt();
-         System.out.println(lcm(n1,n2));
-     }
+        if(a==0){
+            return b;
+        }else{
+            return a;
+        }
+    }
+    static int lcm(int n,int m){
+        return (n*m)/gcd(n,m);
+    }
+    public static void main(String[] args){
+        Scanner in =new Scanner(System.in);
+        int num1=in.nextInt();
+        int num2=in.nextInt();
+        System.out.println(lcm(num1,num2));
+        
+    }
 }
